@@ -19,7 +19,7 @@ public class balloon extends Actor
      */
     public void act() 
     {
-       while (isAtEdge() == false)  // change to isAtEdge == False
+       while (isAtEdge() == false) 
        {
         //GreenfootImage image = new GreenfootImage("balloon1.png");
         scaling(percentChange);
