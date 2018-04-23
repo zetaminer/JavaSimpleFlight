@@ -18,17 +18,14 @@ public class balloon extends Actor
      */
     public void act() 
     {
-       //image.scale(10,10);
-       //setImage(image);
-       while (percentChange < 20)
+       while (percentChange < 10)  // change to isAtEdge == False
        {
         //GreenfootImage image = new GreenfootImage("balloon1.png");
         scaling(percentChange);
         percentChange += .1;
         Greenfoot.delay(5);
        }
-        
-    } 
+    }     
     public void scaling(double percentChange)
     {
         GreenfootImage image = new GreenfootImage("balloon1.png");
