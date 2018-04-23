@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class balloon extends Actor
 {
-    
     GreenfootImage image = new GreenfootImage("balloon1.png");
     double percentChange = -0.9;
     double width = (double)(image.getWidth());
@@ -41,6 +40,7 @@ public class balloon extends Actor
         setRotation(degrees);
         turn(getRandomNumber(-20,20));
         move(10);
+        setRotation(getRandomNumber(-20,20));
     }
     public int getRandomNumber(int start,int end)
     {
