@@ -13,7 +13,7 @@ public class balloon extends Actor
     double width = (double)(image.getWidth());
     double height =(double)(image.getHeight());
     int degrees = getRandomNumber(0,359);
-    
+    int delayTime = 0;
     
      /**
      * Act - do whatever the ballon wants to do. This method is called whenever
@@ -29,7 +29,7 @@ public class balloon extends Actor
         moveBalloon();
         checkEdge();
         world.checkForSpawning();
-        Greenfoot.delay(1);
+        Greenfoot.delay(delayTime);
        
        
            }     
@@ -55,10 +55,9 @@ public class balloon extends Actor
     {
         if (isAtEdge())
         {
-            getWorld().removeObject(this);
             MyWorld world = (MyWorld)getWorld();
+            getWorld().removeObject(this);
             world.checkForSpawning();
-            // world.addObject(new balloon(),300,200);
         }
     }
 }
