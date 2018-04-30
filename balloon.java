@@ -13,23 +13,27 @@ public class balloon extends Actor
     double width = (double)(image.getWidth());
     double height =(double)(image.getHeight());
     int degrees = getRandomNumber(0,359);
+    
+    
      /**
      * Act - do whatever the ballon wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-       while (isAtEdge() == false) 
-       {
-        //GreenfootImage image = new GreenfootImage("balloon1.png");
-        scaling(percentChange);
+       
+       MyWorld world = (MyWorld)getWorld();
+       //GreenfootImage image = new GreenfootImage("balloon1.png"); WHY DOES THIS CAUSE PIXELATION?
+        scale(percentChange);
         percentChange += .1;
         moveBalloon();
-        Greenfoot.delay(5);
-       }
-       getWorld().removeObject(this);
-    }     
-    public void scaling(double percentChange)
+        checkEdge();
+        world.checkForSpawning();
+        Greenfoot.delay(1);
+       
+       
+           }     
+    public void scale(double percentChange)
     {
         GreenfootImage image = new GreenfootImage("balloon1.png");
         image.scale((int)(width + percentChange*width), (int)(height + percentChange*height)); 
@@ -46,5 +50,15 @@ public class balloon extends Actor
     {
        int normal = Greenfoot.getRandomNumber(end-start+1);
        return normal+start;
+    }
+    public void checkEdge()
+    {
+        if (isAtEdge())
+        {
+            getWorld().removeObject(this);
+            MyWorld world = (MyWorld)getWorld();
+            world.checkForSpawning();
+            // world.addObject(new balloon(),300,200);
+        }
     }
 }
