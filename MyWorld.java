@@ -17,6 +17,7 @@ public class MyWorld extends World
     private int spawnTimer = 0; //timer for when to spawn new balloons
     private int maxNumberBalloons = 4;  //set the maximum number of balloons.
     public int scenarioSpeed = 30; //set game speed
+    public int balloonSpeed = 10;
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.

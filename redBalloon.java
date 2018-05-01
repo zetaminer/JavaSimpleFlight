@@ -13,7 +13,7 @@ public class redBalloon extends balloon
     double width = (double)(image.getWidth());
     double height =(double)(image.getHeight());
     int degrees = getRandomNumber(0,359);
-    int delayTime = 0;
+    
     
      /**
      * Act - do whatever the ballon wants to do. This method is called whenever
@@ -21,18 +21,14 @@ public class redBalloon extends balloon
      */
     public void act() 
     {
-       
-       MyWorld world = (MyWorld)getWorld();
-       //GreenfootImage image = new GreenfootImage("balloon1.png"); WHY DOES THIS CAUSE PIXELATION?
+        MyWorld world = (MyWorld)getWorld();
+        //GreenfootImage image = new GreenfootImage("balloon1.png"); WHY DOES THIS CAUSE PIXELATION?
         scale(percentChange);
         percentChange += .1;
         moveBalloon();
         checkEdge();
         world.checkForSpawning();
-        Greenfoot.delay(delayTime);
-       
-       
-           }     
+    }     
     public void scale(double percentChange)
     {
         GreenfootImage image = new GreenfootImage("balloon1.png");
