@@ -6,19 +6,26 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class redBalloon extends balloon
+public class RedBalloon extends Balloon
 {
-    GreenfootImage image = new GreenfootImage("balloon1.png");
+    //("balloon1.png",10);
+    //GreenfootImage image = new GreenfootImage("balloon1.png");
+    
+    
+    RedBalloon()
+    {
+        Balloon redBalloon = new Balloon("balloon1.png",10);
+    }
+}    
+   /** GreenfootImage image = new GreenfootImage("balloon1.png");
     double percentChange = -0.9;
     double width = (double)(image.getWidth());
     double height =(double)(image.getHeight());
     int degrees = getRandomNumber(0,359);
     
     
-     /**
-     * Act - do whatever the ballon wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+     
+     
     public void act() 
     {
         MyWorld world = (MyWorld)getWorld();
@@ -56,4 +63,5 @@ public class redBalloon extends balloon
             world.checkForSpawning();
         }
     }
-}
+*/
+

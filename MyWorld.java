@@ -17,7 +17,7 @@ public class MyWorld extends World
     private int spawnTimer = 0; //timer for when to spawn new balloons
     private int maxNumberBalloons = 4;  //set the maximum number of balloons.
     public int scenarioSpeed = 30; //set game speed
-    public int balloonSpeed = 10;
+    
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -30,16 +30,16 @@ public class MyWorld extends World
     public void checkForSpawning() 
     {
         spawnTimer = spawnTimer+1; 
-        int balloonCount = getObjects(balloon.class).size();
+        int balloonCount = getObjects(Balloon.class).size();
         if ((spawnTimer%20 == 0 || balloonCount == 0) && balloonCount < maxNumberBalloons)
         {
             if (spawnTimer%50 == 0)
             {
-                addObject(new yellowBalloon(),300,200);
+                addObject(new YellowBalloon(),300,200);
             }
             else
             {
-            addObject(new redBalloon(),300,200);
+            addObject(new RedBalloon(),300,200);
             }
         }
         

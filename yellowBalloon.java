@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class yellowBalloon extends balloon
+public class YellowBalloon extends Balloon
 {
     GreenfootImage image = new GreenfootImage("balloon3.png");
     double percentChange = -0.9;
