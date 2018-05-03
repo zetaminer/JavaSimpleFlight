@@ -32,7 +32,32 @@ public class Balloon extends Actor
         this.balloonSpeed = balloonSpeed;
         this.imageName = imageName;
     }
-     
+    
+    public double getWidth()
+    {
+        return width;
+    }
+    
+    public double getHeight()
+    {
+        return height;
+    }
+    
+    public void setImage(String imageName)
+    {
+        this.image = new GreenfootImage(imageName);
+        setImage(image); 
+        this.width = (double)(image.getWidth());
+        this.height = (double)(image.getHeight());
+    }
+    
+    public void setBalloonSpeed(int speed)
+    {
+        this.balloonSpeed = speed;
+    }
+    
+   
+        
       
      /**
      * Act - do whatever the ballon wants to do. This method is called whenever
@@ -42,20 +67,17 @@ public class Balloon extends Actor
     {
         MyWorld world = (MyWorld)getWorld();
         //GreenfootImage image = new GreenfootImage("balloon1.png"); WHY DOES THIS CAUSE PIXELATION?
-        setImage(image);
-        scale(percentChange,imageName, width, height);
+        //setImage(image);
+        scale(percentChange);
         percentChange += .1;
         moveBalloon(balloonSpeed);
         checkEdge();
         world.checkForSpawning();
-           }     
+    }     
     
-    public void scale(double percentChange,String imageName, double width, double height )
+    public void scale(double percentChange)
     {
-        //GreenfootImage image = new GreenfootImage("balloon1.png");
-        setImage(imageName);
-        //this.image = new GreenfootImage(imageName);
-        image.scale((int)(width + percentChange*width), (int)(height + percentChange*height)); 
+        image.scale((int)(getWidth() + percentChange*getWidth()), (int)(getHeight() + percentChange*getHeight())); 
         setImage(image);
     }
     
@@ -69,8 +91,8 @@ public class Balloon extends Actor
     
     public int getRandomNumber(int start,int end)
     {
-       int normal = Greenfoot.getRandomNumber(end-start+1);
-       return normal+start;
+        int normal = Greenfoot.getRandomNumber(end-start+1);
+        return normal+start;
     }
     
     public void checkEdge()
