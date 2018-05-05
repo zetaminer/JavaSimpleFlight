@@ -8,9 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Balloon extends Actor
 {
-    //GreenfootImage image = new GreenfootImage("balloon1.png");
-    //private String[] image;
-    
     GreenfootImage image;
     String imageName;
     int balloonSpeed;
@@ -18,48 +15,21 @@ public class Balloon extends Actor
     double height;
     double percentChange = -0.9;
     int degrees = getRandomNumber(0,359);
-    
-    public Balloon()
-    {
-    }
-    
-    public Balloon(String imageName, int balloonSpeed)
-    {
-        this.image = new GreenfootImage(imageName);
-        setImage(image); 
-        this.width = (double)(image.getWidth());
-        this.height = (double)(image.getHeight());
-        this.balloonSpeed = balloonSpeed;
-        this.imageName = imageName;
-    }
-    
-    public double getWidth()
-    {
-        return width;
-    }
-    
-    public double getHeight()
-    {
-        return height;
-    }
-    
-    public void setImage(String imageName)
+      
+    public void setBalloon(String imageName)
     {
         this.image = new GreenfootImage(imageName);
         setImage(image); 
         this.width = (double)(image.getWidth());
         this.height = (double)(image.getHeight());
     }
-    
+   
     public void setBalloonSpeed(int speed)
     {
         this.balloonSpeed = speed;
     }
     
-   
-        
-      
-     /**
+    /**
      * Act - do whatever the ballon wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
@@ -67,7 +37,6 @@ public class Balloon extends Actor
     {
         MyWorld world = (MyWorld)getWorld();
         //GreenfootImage image = new GreenfootImage("balloon1.png"); WHY DOES THIS CAUSE PIXELATION?
-        //setImage(image);
         scale(percentChange);
         percentChange += .1;
         moveBalloon(balloonSpeed);
@@ -77,7 +46,7 @@ public class Balloon extends Actor
     
     public void scale(double percentChange)
     {
-        image.scale((int)(getWidth() + percentChange*getWidth()), (int)(getHeight() + percentChange*getHeight())); 
+        image.scale((int)(width + percentChange*width), (int)(height + percentChange*height)); 
         setImage(image);
     }
     

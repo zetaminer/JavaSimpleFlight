@@ -1,67 +1,21 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ballon here.
+ * RedBalloon is subclass of Ballon
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Julia Cook) 
+ * @version (v2)
  */
 public class RedBalloon extends Balloon
 {
-    //("balloon1.png",10);
-    //GreenfootImage image = new GreenfootImage("balloon1.png");
-    
-    
-    RedBalloon()
+      
+    public void act()
     {
-        Balloon redBalloon = new Balloon("balloon1.png",10);
+       //Balloon redBalloon = new Balloon("balloon1.png",width,height,balloonSpeed); 
+       setBalloon("balloon1.png");
+       setBalloonSpeed(10);
+       super.act();
     }
 }    
-   /** GreenfootImage image = new GreenfootImage("balloon1.png");
-    double percentChange = -0.9;
-    double width = (double)(image.getWidth());
-    double height =(double)(image.getHeight());
-    int degrees = getRandomNumber(0,359);
-    
-    
-     
-     
-    public void act() 
-    {
-        MyWorld world = (MyWorld)getWorld();
-        //GreenfootImage image = new GreenfootImage("balloon1.png"); WHY DOES THIS CAUSE PIXELATION?
-        scale(percentChange);
-        percentChange += .1;
-        moveBalloon();
-        checkEdge();
-        world.checkForSpawning();
-    }     
-    public void scale(double percentChange)
-    {
-        GreenfootImage image = new GreenfootImage("balloon1.png");
-        image.scale((int)(width + percentChange*width), (int)(height + percentChange*height)); 
-        setImage(image);
-    }
-    public void moveBalloon()
-    {
-        setRotation(degrees);
-        turn(getRandomNumber(-20,20));
-        move(10);
-        setRotation(getRandomNumber(-20,20));
-    }
-    public int getRandomNumber(int start,int end)
-    {
-       int normal = Greenfoot.getRandomNumber(end-start+1);
-       return normal+start;
-    }
-    public void checkEdge()
-    {
-        if (isAtEdge())
-        {
-            MyWorld world = (MyWorld)getWorld();
-            getWorld().removeObject(this);
-            world.checkForSpawning();
-        }
-    }
-*/
+  
 
