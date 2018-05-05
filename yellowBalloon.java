@@ -11,7 +11,8 @@ public class YellowBalloon extends Balloon
     public void act()
     {
         setBalloon("balloon3.png");
-        setBalloonSpeed(10);
+        setBalloonSpeed(15);
+        setPercentChange(.15);
         super.act();
     }
 }

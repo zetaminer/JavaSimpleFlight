@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Balloon
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ ballon\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=imageName
+comment1.target=void\ setBalloon(java.lang.String)
+comment2.params=speed
+comment2.target=void\ setBalloonSpeed(int)
+comment3.params=percentChange
+comment3.target=void\ setPercentChange(double)
+comment4.params=
+comment4.target=void\ act()
+comment4.text=\r\n\ Act\ -\ do\ whatever\ the\ ballon\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment5.params=percentChange
+comment5.target=void\ scale(double)
+comment6.params=balloonSpeed
+comment6.target=void\ moveBalloon(int)
+comment7.params=start\ end
+comment7.target=int\ getRandomNumber(int,\ int)
+comment8.params=
+comment8.target=void\ checkEdge()
+numComments=9

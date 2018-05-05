@@ -13,9 +13,11 @@ public class Balloon extends Actor
     int balloonSpeed;
     double width;
     double height;
-    double percentChange = -0.9;
+    double percentChange = 0.1;
+    double scalePercent = -0.9;
     int degrees = getRandomNumber(0,359);
       
+    
     public void setBalloon(String imageName)
     {
         this.image = new GreenfootImage(imageName);
@@ -29,6 +31,11 @@ public class Balloon extends Actor
         this.balloonSpeed = speed;
     }
     
+    public void setPercentChange(double percentChange)
+    {
+        this.percentChange = percentChange;
+    }
+    
     /**
      * Act - do whatever the ballon wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -37,8 +44,8 @@ public class Balloon extends Actor
     {
         MyWorld world = (MyWorld)getWorld();
         //GreenfootImage image = new GreenfootImage("balloon1.png"); WHY DOES THIS CAUSE PIXELATION?
-        scale(percentChange);
-        percentChange += .1;
+        scale(scalePercent);
+        scalePercent += percentChange;
         moveBalloon(balloonSpeed);
         checkEdge();
         world.checkForSpawning();
