@@ -71,6 +71,14 @@ public class Airplane extends Actor
                balloon.popBalloon();
            }
         }
+        if (isTouching(AngryBird.class))//&& YellowBalloon().scalePercentage > minSize)
+        {
+           Balloon balloon = (AngryBird) getOneIntersectingObject(AngryBird.class);
+           if (balloon.scalePercent > -.9)
+           {
+               world.endGame();
+           }
+        }
     }
     
     

@@ -16,6 +16,7 @@ public class MyWorld extends World
      */
     
     private Counter scoreCounter;
+    private ScoreBoard scoreBoard;
     private int spawnTimer = 0; //timer for when to spawn new balloons
     private int maxNumberBalloons = 4;  //set the maximum number of balloons.
     public int scenarioSpeed = 30; //set game speed
@@ -31,10 +32,9 @@ public class MyWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         scoreCounter = new Counter("Score: ");
-        addObject(scoreCounter, 520, 350);
-        //Airplane airplane = new Airplane();
-        addObject(airplane, 100, 50);
         
+        addObject(scoreCounter, 520, 350);
+        addObject(airplane, 100, 50);
         checkForSpawning();
         Greenfoot.setSpeed(scenarioSpeed);
     }
@@ -61,6 +61,12 @@ public class MyWorld extends World
                 YellowBalloon yellowBalloon = new YellowBalloon();
                 addObject(yellowBalloon,300,200);
             }
+            else if (spawnTimer%30 == 0)
+            {
+                AngryBird angryBird = new AngryBird();
+                addObject(angryBird, 300, 200);
+            }
+            
             else
             {
                 RedBalloon redBalloon = new RedBalloon();
@@ -69,7 +75,10 @@ public class MyWorld extends World
         }
         
     }
-  
-    
-    
+    public void endGame()
+    {
+        Greenfoot.stop();
+        scoreBoard = new ScoreBoard("Score:", this.score);
+        addObject(scoreBoard,300,200);
+    }
 }

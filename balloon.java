@@ -15,10 +15,16 @@ public class Balloon extends Actor
     double height;
     double percentChange = 0.1;
     double scalePercent = -0.9;
+    double maxScalePercent = 1;
     int degrees = getRandomNumber(0,359);
     public double getScalePercent()
     {
         return scalePercent;
+    }
+    
+    public void setMaxScalePercent(double maxScale)
+    {
+        this.maxScalePercent = maxScale;
     }
     
     public void setBalloon(String imageName)
@@ -56,8 +62,16 @@ public class Balloon extends Actor
     
     public void scale(double percentChange)
     {
-        image.scale((int)(width + percentChange*width), (int)(height + percentChange*height)); 
-        setImage(image);
+        if (percentChange < maxScalePercent)
+        {
+            image.scale((int)(width + percentChange*width), (int)(height + percentChange*height)); 
+            setImage(image);
+        }
+        else
+        {
+            image.scale((int)(width + maxScalePercent*width), (int)(height + maxScalePercent*height)); 
+            setImage(image);
+        }
     }
     
     public void moveBalloon(int balloonSpeed)

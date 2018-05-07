@@ -9,4 +9,6 @@ comment3.params=score
 comment3.target=void\ setScore(int)
 comment4.params=
 comment4.target=void\ checkForSpawning()
-numComments=5
+comment5.params=
+comment5.target=void\ endGame()
+numComments=6
