@@ -16,7 +16,10 @@ public class Balloon extends Actor
     double percentChange = 0.1;
     double scalePercent = -0.9;
     int degrees = getRandomNumber(0,359);
-      
+    public double getScalePercent()
+    {
+        return scalePercent;
+    }
     
     public void setBalloon(String imageName)
     {

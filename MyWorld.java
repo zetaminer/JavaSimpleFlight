@@ -17,15 +17,31 @@ public class MyWorld extends World
     private int spawnTimer = 0; //timer for when to spawn new balloons
     private int maxNumberBalloons = 4;  //set the maximum number of balloons.
     public int scenarioSpeed = 30; //set game speed
+    private int score = 0; //keeps score
+    int redScore = 10; //score for hitting red balloon
+    int yellowScore = 25; //score for hitting yellow ballon
+    double minSize = -.1; //minimum size for balloon to be popped
+    double maxSize = 1.2; //maximum size for balloon to be popped
     
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
+        Airplane airplane = new Airplane();
+        addObject(airplane, 100, 50);
         checkForSpawning();
         Greenfoot.setSpeed(scenarioSpeed);
     }
     
+    public int getScore()
+    {
+        return score;
+    }
+    
+    public void setScore(int score)
+    {
+        this.score += score;
+    }
  
     public void checkForSpawning() 
     {
@@ -35,13 +51,33 @@ public class MyWorld extends World
         {
             if (spawnTimer%50 == 0)
             {
-                addObject(new YellowBalloon(),300,200);
+                YellowBalloon yellowBalloon = new YellowBalloon();
+                addObject(yellowBalloon,300,200);
             }
             else
             {
-            addObject(new RedBalloon(),300,200);
+                RedBalloon redBalloon = new RedBalloon();
+                addObject(redBalloon,300,200);
             }
         }
         
     }
+   /* public void balloonCheck()
+    {
+        //MyWorld world = (MyWorld)getWorld();
+        
+        if (isTouching(RedBalloon.class))// && RedBalloon().scalePercentage > minSize)
+        {
+            //removeObject(RedBalloon());
+            setScore(redScore);
+            
+        }
+        if (isTouching(YellowBalloon.class))// && YellowBalloon().scalePercentage > minSize)
+        {
+            //removeObject(RedBalloon());
+            setScore(yellowScore);
+        }
+    }
+    */
+    
 }
