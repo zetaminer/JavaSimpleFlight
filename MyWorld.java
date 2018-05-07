@@ -14,6 +14,8 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
+    
+    private Counter scoreCounter;
     private int spawnTimer = 0; //timer for when to spawn new balloons
     private int maxNumberBalloons = 4;  //set the maximum number of balloons.
     public int scenarioSpeed = 30; //set game speed
@@ -28,8 +30,11 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
+        scoreCounter = new Counter("Score: ");
+        addObject(scoreCounter, 520, 350);
         //Airplane airplane = new Airplane();
         addObject(airplane, 100, 50);
+        
         checkForSpawning();
         Greenfoot.setSpeed(scenarioSpeed);
     }
@@ -42,6 +47,7 @@ public class MyWorld extends World
     public void setScore(int score)
     {
         this.score += score;
+        scoreCounter.setValue(this.score);
     }
  
     public void checkForSpawning() 

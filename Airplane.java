@@ -39,7 +39,6 @@ public class Airplane extends Actor
     public void movePlane()
     {
         move(4);
-        //balloonCheck();
         if (Greenfoot.isKeyDown("left"))
         {
             turn(-3);
@@ -65,7 +64,7 @@ public class Airplane extends Actor
         }
         if (isTouching(YellowBalloon.class))//&& YellowBalloon().scalePercentage > minSize)
         {
-            Balloon balloon = (YellowBalloon) getOneIntersectingObject(YellowBalloon.class);
+           Balloon balloon = (YellowBalloon) getOneIntersectingObject(YellowBalloon.class);
            if (balloon.scalePercent > .1)
            {
                world.setScore(yellowScore);
