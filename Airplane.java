@@ -33,12 +33,13 @@ public class Airplane extends Actor
         scale(scalePercent);
         movePlane();
         balloonCheck();
+        world.checkForSpawning();
     }
        
     public void movePlane()
     {
         move(4);
-        balloonCheck();
+        //balloonCheck();
         if (Greenfoot.isKeyDown("left"))
         {
             turn(-3);
@@ -52,27 +53,27 @@ public class Airplane extends Actor
     public void balloonCheck()
     {
         MyWorld world = (MyWorld)getWorld();
-        
-        
         double scale;
-        
-        
         if (isTouching(RedBalloon.class))
         {
-            
-            RedBallon balloon = (Balloon) getOneIntersectingObject(RedBalloon.class);
-            scale = 
-            removeTouching(getOneIntersectingObject(RedBalloon.class));
-            
-            world.setScore(redScore);
-            
+            Balloon balloon = (RedBalloon) getOneIntersectingObject(RedBalloon.class);
+            if (balloon.scalePercent > .1)
+            {
+                world.setScore(redScore);
+                balloon.popBalloon();
+            }
         }
-        if (isTouching(YellowBalloon.class))// && YellowBalloon().scalePercentage > minSize)
+        if (isTouching(YellowBalloon.class))//&& YellowBalloon().scalePercentage > minSize)
         {
-            //removeObject(RedBalloon());
-            world.setScore(yellowScore);
+            Balloon balloon = (YellowBalloon) getOneIntersectingObject(YellowBalloon.class);
+           if (balloon.scalePercent > .1)
+           {
+               world.setScore(yellowScore);
+               balloon.popBalloon();
+           }
         }
     }
+    
     
     public void scale(double percentChange)
     {

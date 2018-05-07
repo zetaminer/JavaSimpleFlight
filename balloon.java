@@ -83,4 +83,9 @@ public class Balloon extends Actor
             world.checkForSpawning();
         }
     }
+    
+    public void popBalloon()
+    {
+        getWorld().removeObject(this);
+    }
 }

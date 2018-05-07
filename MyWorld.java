@@ -22,12 +22,13 @@ public class MyWorld extends World
     int yellowScore = 25; //score for hitting yellow ballon
     double minSize = -.1; //minimum size for balloon to be popped
     double maxSize = 1.2; //maximum size for balloon to be popped
+    Airplane airplane = new Airplane();
     
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-        Airplane airplane = new Airplane();
+        //Airplane airplane = new Airplane();
         addObject(airplane, 100, 50);
         checkForSpawning();
         Greenfoot.setSpeed(scenarioSpeed);
@@ -62,22 +63,7 @@ public class MyWorld extends World
         }
         
     }
-   /* public void balloonCheck()
-    {
-        //MyWorld world = (MyWorld)getWorld();
-        
-        if (isTouching(RedBalloon.class))// && RedBalloon().scalePercentage > minSize)
-        {
-            //removeObject(RedBalloon());
-            setScore(redScore);
-            
-        }
-        if (isTouching(YellowBalloon.class))// && YellowBalloon().scalePercentage > minSize)
-        {
-            //removeObject(RedBalloon());
-            setScore(yellowScore);
-        }
-    }
-    */
+  
+    
     
 }
