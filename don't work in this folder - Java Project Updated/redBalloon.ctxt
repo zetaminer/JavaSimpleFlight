@@ -1,6 +1,0 @@
-#BlueJ class context
-comment0.target=RedBalloon
-comment0.text=\r\n\ RedBalloon\ is\ subclass\ of\ Ballon\r\n\ \r\n\ @author\ (Julia\ Cook)\ \r\n\ @version\ (v2)\r\n
-comment1.params=
-comment1.target=void\ act()
-numComments=2
