@@ -34,7 +34,7 @@ public class MyWorld extends World
         scoreCounter = new Counter("Score: ");
         
         addObject(scoreCounter, 520, 350);
-        addObject(airplane, 100, 50);
+        addObject(airplane, 300, 350);
         checkForSpawning();
         Greenfoot.setSpeed(scenarioSpeed);
     }
