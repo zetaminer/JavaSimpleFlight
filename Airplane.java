@@ -41,7 +41,6 @@ public class Airplane extends Actor
     public void balloonCheck()
     {
         MyWorld world = (MyWorld)getWorld();
-        double scale;
         if (isTouching(RedBalloon.class))
         {
             Balloon balloon = (RedBalloon) getOneIntersectingObject(RedBalloon.class);
