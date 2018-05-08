@@ -25,7 +25,7 @@ public class MyWorld extends World
     int yellowScore = 25; //score for hitting yellow ballon
     double minSize = -.1; //minimum size for balloon to be popped
     double maxSize = 1.2; //maximum size for balloon to be popped
-    Airplane airplane = new Airplane();
+    Plane airplane = new Plane();
     
     public MyWorld()
     {    
