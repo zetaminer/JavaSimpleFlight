@@ -1,15 +1,11 @@
 #BlueJ class context
 comment0.target=Airplane
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ airplane\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=speed
-comment1.target=void\ setPlaneSpeed(int)
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ ballon\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment2.params=
-comment2.target=void\ act()
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ ballon\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.target=void\ balloonCheck()
 comment3.params=
-comment3.target=void\ balloonCheck()
-comment4.params=
-comment4.target=void\ checkKeypress()
-comment5.params=
-comment5.target=void\ popBalloon()
-numComments=6
+comment3.target=void\ checkKeypress()
+numComments=4

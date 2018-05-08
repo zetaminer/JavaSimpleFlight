@@ -8,20 +8,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Airplane extends Actor
 {
-    int redScore = 10; //score for hitting red balloon
-    int yellowScore = 25; //score for hitting yellow ballon
+    private int redScore = 10; //score for hitting red balloon
+    private int yellowScore = 25; //score for hitting yellow ballon
     
-    // Images to 
+    // Images for plane 
     private GreenfootImage defaultView = new GreenfootImage("plane.png");
     private GreenfootImage rightTurn = new GreenfootImage("plane turn right.png");
     private GreenfootImage leftTurn = new GreenfootImage("plane turn left.png");
     private int planeSpeed = 15; 
     
     
-    public void setPlaneSpeed(int speed)
-    {
-        this.planeSpeed = speed;
-    }
+   
            
     /**
      * Act - do whatever the ballon wants to do. This method is called whenever
@@ -30,47 +27,46 @@ public class Airplane extends Actor
     public void act() 
     {
         MyWorld world = (MyWorld)getWorld();
-        
         checkKeypress();
-        //popBalloon(); //Dennis's 
-        balloonCheck(); //julia's
+        balloonCheck(); 
         world.checkForSpawning();
     }
-      
-      
+    
+    //checks to see if plane has hit a balloon  
     public void balloonCheck()
     {
         MyWorld world = (MyWorld)getWorld();
         if (isTouching(RedBalloon.class))
         {
             Balloon balloon = (RedBalloon) getOneIntersectingObject(RedBalloon.class);
-            if (balloon.scalePercent > .1)
+            if (balloon.getScalePercent() > .1)
             {
                 world.setScore(redScore);
                 balloon.popBalloon();
             }
         }
-        if (isTouching(YellowBalloon.class))//&& YellowBalloon().scalePercentage > minSize)
+        if (isTouching(YellowBalloon.class))
         {
            Balloon balloon = (YellowBalloon) getOneIntersectingObject(YellowBalloon.class);
-           if (balloon.scalePercent > .1)
+           if (balloon.getScalePercent() > .1)
            {
                world.setScore(yellowScore);
                balloon.popBalloon();
            }
         }
-        if (isTouching(AngryBird.class))//&& YellowBalloon().scalePercentage > minSize)
+        if (isTouching(AngryBird.class))
         {
            Balloon balloon = (AngryBird) getOneIntersectingObject(AngryBird.class);
-           if (balloon.scalePercent > -.9)
+           if (balloon.getScalePercent() > -.9)
            {
+               world.birdNoise.play();
                world.endGame();
            }
         }
     }
-        
-   
-     public void checkKeypress()
+    
+    //method for steering plane and changing plane image.
+     public void checkKeypress() //
     {
         if (Greenfoot.isKeyDown("left"))
         {
@@ -99,19 +95,4 @@ public class Airplane extends Actor
             setImage(defaultView);
         }
     }
-    
-    public void popBalloon()
-    {
-        RedBalloon red = (RedBalloon) getOneIntersectingObject(RedBalloon.class);
-        if (red != null && red.percentChange > 1.0)
-        {
-            getWorld().removeObject(red);
-        }
-        
-        YellowBalloon yellow = (YellowBalloon) getOneIntersectingObject(YellowBalloon.class);
-        if (yellow != null && yellow.percentChange > 1.0)
-        {
-            getWorld().removeObject(yellow);
-        }
-    } 
 }

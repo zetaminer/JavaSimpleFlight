@@ -21,10 +21,12 @@ public class MyWorld extends World
     private int maxNumberBalloons = 4;  //set the maximum number of balloons.
     public int scenarioSpeed = 30; //set game speed
     private int score = 0; //keeps score
+    
     int redScore = 10; //score for hitting red balloon
     int yellowScore = 25; //score for hitting yellow ballon
-    double minSize = -.1; //minimum size for balloon to be popped
-    double maxSize = 1.2; //maximum size for balloon to be popped
+    
+    GreenfootSound popNoise = new GreenfootSound("balloonPop.mp3");
+    GreenfootSound birdNoise = new GreenfootSound("bird.mp3");
     Airplane airplane = new Airplane();
     
     public MyWorld()
@@ -32,7 +34,6 @@ public class MyWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         scoreCounter = new Counter("Score: ");
-        
         addObject(scoreCounter, 520, 350);
         addObject(airplane, 300, 350);
         checkForSpawning();
@@ -61,7 +62,7 @@ public class MyWorld extends World
                 YellowBalloon yellowBalloon = new YellowBalloon();
                 addObject(yellowBalloon,300,200);
             }
-            else if (spawnTimer%30 == 0)
+            else if (spawnTimer%60 == 0)
             {
                 AngryBird angryBird = new AngryBird();
                 addObject(angryBird, 300, 200);
@@ -78,6 +79,7 @@ public class MyWorld extends World
     public void endGame()
     {
         Greenfoot.stop();
+        
         scoreBoard = new ScoreBoard("Score: ", score);
         addObject(scoreBoard,300,200);
     }
