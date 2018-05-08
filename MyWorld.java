@@ -78,7 +78,7 @@ public class MyWorld extends World
     public void endGame()
     {
         Greenfoot.stop();
-        scoreBoard = new ScoreBoard("Score:", this.score);
+        scoreBoard = new ScoreBoard("Score: ", score);
         addObject(scoreBoard,300,200);
     }
 }

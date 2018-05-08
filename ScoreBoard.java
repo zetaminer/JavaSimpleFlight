@@ -1,8 +1,5 @@
 import greenfoot.*;
 
-
-import java.util.Calendar;
-
 /**
  * The ScoreBoard is used to display results on the screen. It can display some
  * text and several numbers.
@@ -21,8 +18,6 @@ public class ScoreBoard extends Actor
         makeImage("Score: ",100);
     }
 
-    
-    
     /**
      * Create a score board for the final result.
      */
@@ -52,7 +47,4 @@ public class ScoreBoard extends Actor
         setImage(image);
     }
     
-    
-    
-   
 }
